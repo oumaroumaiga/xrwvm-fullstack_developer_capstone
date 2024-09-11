@@ -10,12 +10,12 @@ urlpatterns = [
     path('djangoapp/', include('djangoapp.urls')),  # Include the app's URLs
 
     # Dynamic URLs
-    path('login/', views.login_user, name='login'),
-    path('register/', views.registration, name='register'),
-    path('dealers/', views.get_dealerships, name='dealers'),
-    path('dealer/<int:dealer_id>/', views.get_dealer_details, name='dealer_details'),
-    path('get_dealer/', views.get_dealerships, name='get_dealer'),
-
+    path("about", TemplateView.as_view(template_name="About.html")),
+    path("contact/", TemplateView.as_view(template_name="Contact.html")),
+    path("login/", TemplateView.as_view(template_name="index.html")),
+    path("register", TemplateView.as_view(template_name="index.html")),
+    path("dealers/", TemplateView.as_view(template_name="index.html")),
+    path("dealer/<int:dealer_id>", TemplateView.as_view(template_name="index.html")),
     # Static pages
     path('', TemplateView.as_view(template_name="Home.html")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
